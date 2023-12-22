@@ -1,26 +1,21 @@
 ---
-title: 'IoT System Vulnerability Analysis and Network Hardening with Shortest Attack Trace in a Weighted Attack Graph'
+title: 'Exploring Machine Learning Algorithms for User Activity Inference from IoT Network Traffic'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
+  - Kuai Xu
   - Yinxin Wan
   - xuanli
-  - Abdulhakim Sabur
-  - Alena Chang
-  - Kuai Xu
+  - Feng Wang
   - Guoliang Xue
 
-author_notes:
-  - 'Equal contribution'
-  - 'Equal contribution'
-
-date: '2023-05-12T:15:30Z-0600'
-doi: '10.1145/3576842.3582326'
+date: '2023-07-12T:15:30Z-0600'
+# doi: '10.1145/3576842.3582326'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2023-04-12T00:00:00Z'
+publishDate: '2023-07-12T00:00:00Z'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -29,19 +24,18 @@ publishDate: '2023-04-12T00:00:00Z'
 publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: In *8th ACM/IEEE Conference on Internet of Things Design and Implementation*
-publication_short: In *IoTDI*
+publication: In *The 20th IEEE International Conference on Mobile Ad-Hoc and Smart Systems*
+publication_short: In *IEEE MASS*
 
-abstract: In recent years, Internet of Things (IoT) devices have been extensively deployed in edge networks, including smart homes and offices. Despite the exciting opportunities afforded by the advancements in the IoT, it also introduces new attack vectors and vulnerabilities in the system. Existing studies have shown that the attack graph is an effective model for performing system-level analysis of IoT security. In this paper, we study IoT system vulnerability analysis and network hardening. We first extend the concept of attack graph to weighted attack graph and design a novel algorithm for computing a shortest attack trace in a weighted attack graph. We then formulate the network hardening problem. We prove that this problem is NP-hard, and then design an exact algorithm and a heuristic algorithm to solve it. Extensive experiments on 9 synthetic IoT systems and 2 real-world smart home IoT testbeds demonstrate that our shortest attack trace algorithm is robust and fast, and our heuristic network hardening algorithm is efficient in producing near optimal results compared to the exact algorithm.
+abstract: The availability of ubiquitous and heterogeneous Internet-of-Things (IoT) devices in smart homes and their interactions with users provide a unique opportunity to monitor, understand, recognize, learn, and infer user activities for safety monitoring, connected health, energy saving as well as other disruptive services. Our analysis on IoT network traffic from smart homes with a variety of IoT devices has discovered that user activities often trigger overlapping traffic waves from multiple IoT devices that are deployed near the activities. This insight leads us to adopt wavelet analysis to decompose IoT network traffic in smart homes into low, middle, and high frequency bands that distinguish IoT traffic waves triggered by user activities from background noises such as heartbeat signals between IoT devices and cloud servers. Subsequently, we extract a broad range of traffic features from these IoT traffic waves and explore supervised machine learning (ML) algorithms to classify various user activities with these features. Based on the labelled user activities and IoT network traffic data collected from real smart home environments, our experiments have demonstrated that the ML-based algorithms are able to use IoT network traffic to accurately infer various user activities in smart homes.
 
 # Summary. An optional shortened abstract.
 # summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
 tags: 
 - Internet of Things
-- IoT security
-- attack graph
-- attack trace
+- machine learning
+- activity inference
 
 # Display this page in the Featured widget?
 featured: false
@@ -82,3 +76,4 @@ projects: []
 slides: ''
 ---
 
+*Best Paper Award Recipient*
