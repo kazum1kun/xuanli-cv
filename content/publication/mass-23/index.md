@@ -11,17 +11,15 @@ authors:
   - Feng Wang
   - Guoliang Xue
 
-date: '2023-07-12T:15:30Z-0600'
-# doi: '10.1145/3576842.3582326'
+date: '2023-09-26'
+doi: '10.1109/MASS58611.2023.00052'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2023-07-12T00:00:00Z'
+publishDate: '2023-09-26T00:00:00Z'
 
 # Publication type.
-# Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
-# 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
-# 7 = Thesis; 8 = Patent
-publication_types: ['1']
+# https://docs.citationstyles.org/en/stable/specification.html#appendix-iii-types
+publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
 publication: In *The 20th IEEE International Conference on Mobile Ad-Hoc and Smart Systems*
@@ -45,7 +43,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
+url_pdf: 'https://ieeexplore.ieee.org/abstract/document/10298385'
 url_code: ''
 url_dataset: ''
 url_poster: ''

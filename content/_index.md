@@ -52,10 +52,8 @@ sections:
     content:
       title: TAship
       text: |-
-        - Spring 2023, CSE 310 Data Structures and Algorithms
-        - Fall 2022, CSE 310 Data Structures and Algorithms
-        - Spring 2020, CSE 460 Software Analysis and Design
-        - Spring 2019, CSE 460 Software Analysis and Design
+        - Fall 2022 - present, CSE 310 Data Structures and Algorithms
+        - Spring 2019, Spring 2020, CSE 460 Software Analysis and Design
     design:
       columns: '2'
   # - block: features

@@ -16,17 +16,15 @@ author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2023-05-12T:15:30Z-0600'
+date: '2023-05-09'
 doi: '10.1145/3576842.3582326'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2023-04-12T00:00:00Z'
+publishDate: '2023-05-09'
 
 # Publication type.
-# Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
-# 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
-# 7 = Thesis; 8 = Patent
-publication_types: ['1']
+# https://docs.citationstyles.org/en/stable/specification.html#appendix-iii-types
+publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
 publication: In *8th ACM/IEEE Conference on Internet of Things Design and Implementation*
@@ -51,7 +49,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
+url_pdf: 'https://dl.acm.org/doi/abs/10.1145/3576842.3582326'
 url_code: ''
 url_dataset: ''
 url_poster: ''

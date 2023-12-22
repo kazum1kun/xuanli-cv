@@ -11,17 +11,15 @@ authors:
   - Feng Wang
   - Guoliang Xue
 
-date: '2023-05-05T00:00:00Z'
-# doi: '10.1109/ICCCN54977.2022.9868917'
+date: '2023-05-19T00:00:00Z'
+doi: '10.1109/INFOCOM53939.2023.10228993'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2023-04-01T00:00:00Z'
+publishDate: '2023-05-19T00:00:00Z'
 
 # Publication type.
-# Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
-# 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
-# 7 = Thesis; 8 = Patent
-publication_types: ['1']
+# https://docs.citationstyles.org/en/stable/specification.html#appendix-iii-types
+publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
 publication: In *2023 IEEE International Conference on Computer Communications*
@@ -46,7 +44,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
+url_pdf: 'https://ieeexplore.ieee.org/abstract/document/10228993'
 url_code: ''
 url_dataset: ''
 url_poster: ''
