@@ -54,7 +54,7 @@ url_code: ''
 url_dataset: ''
 url_poster: ''
 url_project: ''
-url_slides: ''
+url_slides: 'iotdi-23.pptx'
 url_source: ''
 url_video: ''
 
