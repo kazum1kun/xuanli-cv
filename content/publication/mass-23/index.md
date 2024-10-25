@@ -39,11 +39,10 @@ tags:
 featured: false
 
 # Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-url_pdf: 'https://ieeexplore.ieee.org/abstract/document/10298385'
+links:
+- name: IEEE Xplore
+  url: https://ieeexplore.ieee.org/abstract/document/10298385
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''

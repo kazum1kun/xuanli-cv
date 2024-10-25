@@ -28,10 +28,10 @@ tags:
 - functional mock-up units
 featured: false
 
-# links:
-# - name: ""
-#   url: ""
-url_pdf: 'https://keep.lib.asu.edu/items/161251'
+links:
+- name: 'ASU KEEP'
+  url: 'https://keep.lib.asu.edu/items/161251'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''

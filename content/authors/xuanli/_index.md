@@ -81,7 +81,7 @@ email: ''
 highlight_name: true
 ---
 
-I am a third year PhD student in Computer Science at Arizona State University. I am supervised by Dr. [Guoliang Xue](https://www.public.asu.edu/~gxue1/).
+I am a fourth year PhD student in Computer Science department at Arizona State University. I am supervised by [Dr. Guoliang Xue](https://www.public.asu.edu/~gxue1/).
 
 My research interest include network optimization, network security, artificial intelligence, and the Internet of Things.
 <!-- {style="text-align: justify;"} -->

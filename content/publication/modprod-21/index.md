@@ -29,10 +29,10 @@ tags:
 - DEVS
 featured: false
 
-# links:
-# - name: ""
-#   url: ""
-url_pdf: 'https://keep.lib.asu.edu/items/161251'
+links:
+- name: 'MODPROD'
+  url: 'https://wcc.ep.liu.se/index.php/MODPROD/article/view/732'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''

@@ -30,15 +30,15 @@ tags:
 - smart homes
 - machine learning
 - unsupervised learning
-- user activitiy inference
+- user activity inference
 - device events
 
 featured: false
 
-# links:
-# - name: ""
-#   url: ""
-url_pdf: 'https://ieeexplore.ieee.org/abstract/document/9833514'
+links:
+- name: IEEE Xplore
+  url: https://ieeexplore.ieee.org/abstract/document/9833514
+url_pdf: ''
 url_code: 'https://github.com/kazum1kun/e2a_python'
 url_dataset: ''
 url_poster: ''

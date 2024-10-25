@@ -52,7 +52,7 @@ sections:
     content:
       title: TAship
       text: |-
-        - Fall 2022 - present, CSE 310 Data Structures and Algorithms
+        - Fall 2022 - Spring 2024, CSE 310 Data Structures and Algorithms
         - Spring 2019, Spring 2020, CSE 460 Software Analysis and Design
     design:
       columns: '2'
@@ -243,8 +243,8 @@ sections:
         country: United States
         country_code: US
       # directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
-      office_hours:
-        - 'TBD'
+      # office_hours:
+      #   - 'TBD'
       contact_links:
         # - icon: twitter
         #   icon_pack: fab

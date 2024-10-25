@@ -23,7 +23,7 @@ publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
 publication: To appear in *2024 Globalcom*
-publication_short: To appear in *Globalcom 24*.
+publication_short: To appear in *Globalcom 24*
 
 abstract: Recent advances in space quantum communications envision Low Earth Orbit (LEO) satellites for global entanglement distribution. Entanglement distribution in such a network requires considerations such as satellite mobility, ground station mobility due to the Earth's rotation, inter-satellite links, and multiple orbital shells, all of which have not been thoroughly studied in the networking literature. We ameliorate this deficit by defining a system model which accounts for all of the aforementioned factors. Using this system model, we formulate the dynamic optimal entanglement distribution (DOED) problem. We convert the DOED problem in a dynamic physical network to an instance of the problem in a static logical graph, the latter of which can be used to solve the former. We obtain a reduced logical graph from a logical graph, which can be used to reduce the complexity of solving the DOED problem. We propose two polynomial-time greedy algorithms for computing entanglement paths, as well as an integer linear programming (ILP)-based algorithm as a benchmark. We present evaluation results to demonstrate the advantages of our model and algorithms.
 
