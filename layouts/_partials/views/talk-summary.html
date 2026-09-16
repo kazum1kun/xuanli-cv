@@ -1,0 +1,48 @@
+{{- $item := .item -}}
+{{- $dateFormat := site.Params.hugoblox.locale.date_format | default ":date_long" -}}
+{{- $timeFormat := site.Params.hugoblox.locale.time_format | default "3:04 PM" -}}
+{{- $start := time ($item.Params.event_start | default $item.Date) -}}
+{{- $allDay := $item.Params.event_all_day | default false -}}
+{{- $titleID := printf "talk-title-%s" $item.File.UniqueID -}}
+
+<article class="xlin-talk" aria-labelledby="{{ $titleID }}">
+  <h3 class="xlin-talk-title" id="{{ $titleID }}">
+    <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
+  </h3>
+
+  {{- with partial "functions/get_summary" $item }}
+  <div class="xlin-talk-summary">{{ $item.RenderString (dict "display" "inline") . }}</div>
+  {{- end }}
+
+  <p class="xlin-talk-meta">
+    <span class="xlin-talk-dates">
+      <time datetime="{{ $start.Format "2006-01-02T15:04:05Z07:00" }}">{{ time.Format $dateFormat $start }}{{ if not $allDay }} {{ time.Format $timeFormat $start }}{{ end }}</time>
+      {{- with $item.Params.event_end }}
+        {{- $end := time . -}}
+        <span aria-hidden="true"> &ndash; </span><span class="sr-only"> to </span>
+        <time datetime="{{ $end.Format "2006-01-02T15:04:05Z07:00" }}">{{ if or $allDay (ne ($start.Format "2006-01-02") ($end.Format "2006-01-02")) }}{{ time.Format $dateFormat $end }}{{ if not $allDay }} {{ end }}{{ end }}{{ if not $allDay }}{{ time.Format $timeFormat $end }}{{ end }}</time>
+      {{- end }}
+    </span>
+    {{- with $item.Params.location }}
+    <span class="xlin-talk-location"><span aria-hidden="true"> · </span>{{ . }}</span>
+    {{- end }}
+  </p>
+
+  {{- with $item.Params.event_name }}
+  <p class="xlin-talk-event">
+    {{- if $item.Params.event_url -}}
+      <a href="{{ $item.Params.event_url | safeURL }}" target="_blank" rel="noopener">{{ . }}</a>
+    {{- else -}}
+      {{ . }}
+    {{- end -}}
+  </p>
+  {{- end }}
+
+  {{- with $item.Params.authors }}
+  <p class="xlin-talk-authors">{{ partial "page_metadata_authors" $item }}</p>
+  {{- end }}
+
+  {{- if partial "functions/has_attachments" $item }}
+  <div class="xlin-talk-links">{{ partial "page_links" (dict "page" $item "is_list" 1) }}</div>
+  {{- end }}
+</article>

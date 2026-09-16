@@ -1,0 +1,104 @@
+/* Preserve xlin.io's centered profile and two-column academic sections. */
+html { scroll-padding-top: 90px; }
+body { font-size: 21px; }
+.hbb-section { padding: 100px max(24px, calc((100% - 1240px) / 2)); }
+.hbb-section:nth-of-type(even) { background: #f7f7f7; }
+.dark .hbb-section:nth-of-type(odd) { background: #272935; }
+.dark .hbb-section:nth-of-type(even) { background: #23252f; }
+#about { padding-top: 75px !important; padding-bottom: 100px !important; }
+#profile .avatar-wrapper { margin-top: 0; }
+#profile .avatar { padding: 0; }
+#profile > .text-3xl { font-family: var(--hb-font-heading); font-size: 37px; font-weight: 300; }
+#profile h3 { font-size: 21px; font-weight: 400; color: #777; }
+.dark #profile h3 { color: #aaa; }
+#profile > .mb-2:not(.text-3xl) { font-size: 21px; }
+#profile .network-icon { margin: 12px 0 8px; gap: 10px; }
+#profile .network-icon a { color: var(--color-primary-600); }
+.dark #profile .network-icon a { color: #bbdefb; }
+#profile .network-icon svg { width: 31px; height: 31px !important; }
+#profile .prose { max-width: 660px; font-size: 21px; line-height: 1.65; }
+#profile .bio-text p { margin: 0 0 22px; }
+#profile .bio-text p:last-child { margin-bottom: 0; }
+.xlin-collection { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 0 36px; align-items: start; }
+/* The background is the first child; the heading wrapper follows it. */
+.xlin-collection > .home-section-bg + .flex { display: contents; }
+.xlin-collection > .home-section-bg + .flex > .text-3xl {
+  grid-column: 1; grid-row: 1 / span 3; margin: 0;
+  font-family: var(--hb-font-heading); font-size: 47px; font-weight: 400; line-height: 1.25;
+}
+.xlin-collection > .home-section-bg + .flex > p { grid-column: 2; grid-row: 1; margin: 0 0 28px; }
+.xlin-collection > .home-section-bg + .flex + .flex { grid-column: 2; padding: 0; min-width: 0; }
+#publications > .home-section-bg + .flex + .flex { grid-row: 2; }
+#talks > .home-section-bg + .flex + .flex { grid-row: 1; }
+#publications > .home-section-bg + .flex > p { background: #eef7fd; border: 1px solid #b4d5ee; border-radius: 4px; padding: 16px 22px; color: #235777; font-size: 19px; }
+#publications > .home-section-bg + .flex > p a { color: inherit; text-decoration: underline; }
+.xlin-collection .max-w-3xl { margin-top: 0; max-width: none; }
+.xlin-collection > .container { grid-column: 2; padding: 0; }
+.xlin-collection > .container > div { justify-content: flex-start; margin-top: 20px; }
+/* Match the original site's publication archive link. */
+#publications > .container a {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 4px 0;
+  color: #1565c0;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.dark #publications > .container a { color: #bbdefb; }
+#publications > .container a::after { content: '\2192'; margin-left: 6px; }
+#publications > .container a:hover { text-decoration: underline; }
+#publications > .container a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.pub-list-item { font-size: 20px; line-height: 1.6; margin-bottom: 26px !important; }
+.pub-list-item > a { text-decoration: none; }
+.pub-list-item > a:hover { text-decoration: underline; }
+.li-cite-author { color: #777; }
+.dark .li-cite-author { color: #b8bac4; }
+.pub-list-item > .flex { margin-top: 9px; gap: 7px; }
+.pub-list-item .hb-attachment-link, .pub-list-item .hb-cite-btn { font-size: 14px; }
+.xlin-markdown > .flex { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 36px; align-items: start; max-width: none; padding: 0; }
+.xlin-markdown .text-3xl { margin: 0; font-family: var(--hb-font-heading); font-size: 47px; font-weight: 400; line-height: 1.25; }
+.xlin-markdown .prose { max-width: none; font-size: 21px; line-height: 1.65; }
+.xlin-markdown .prose ul { margin: 0; padding-left: 24px; }
+.xlin-markdown .prose li { margin-top: 0; }
+.xlin-talk-list { width: 100%; }
+.xlin-talk { margin-bottom: 34px; }
+.xlin-talk:last-child { margin-bottom: 0; }
+.xlin-talk-title { margin: 0 0 9px; font-size: 23px; font-weight: 600; line-height: 1.4; }
+.xlin-talk-title a { color: inherit; }
+.xlin-talk-summary { margin: 0 0 12px; font-size: 18px; line-height: 1.6; }
+.xlin-talk-meta, .xlin-talk-authors { color: #777; font-size: 16px; line-height: 1.6; }
+.dark .xlin-talk-meta, .dark .xlin-talk-authors { color: #b8bac4; }
+.xlin-talk-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.author-note { margin-left: 2px; cursor: help; }
+@media (max-width: 767px) {
+  body { font-size: 18px; }
+  .hbb-section { padding: 56px 24px; }
+  #about { padding-top: 45px !important; padding-bottom: 60px !important; }
+  #profile .prose { font-size: 18px; }
+  .xlin-collection, .xlin-markdown > .flex { display: flex; flex-direction: column; gap: 24px; }
+  .xlin-collection > .home-section-bg + .flex { display: block; width: 100%; max-width: none; padding: 0; }
+  .xlin-collection > .home-section-bg + .flex > .text-3xl, .xlin-markdown .text-3xl { font-size: 34px; }
+  .xlin-collection > .home-section-bg + .flex > p { margin: 24px 0 0; }
+  .xlin-collection > .home-section-bg + .flex + .flex { width: 100%; }
+  .pub-list-item, .xlin-markdown .prose { font-size: 18px; }
+  .xlin-talk-title { font-size: 21px; }
+  .xlin-talk-summary { font-size: 17px; }
+}
+/* Keep the original compact navigation scale independently of body text. */
+.header .navbar { min-height: 70px; padding-left: 36px; padding-right: 36px; }
+.header .navbar-brand { font-size: 24px; font-weight: 700; }
+.header .nav-link { font-size: 16px; }
+#profile a, .xlin-markdown a { color: #1565c0; }
+.dark #profile a, .dark .xlin-markdown a { color: #bbdefb; }
+#profile .bio-text a { font-weight: 400; text-decoration: none; }
+#profile a:hover, .xlin-markdown a:hover { text-decoration: underline; }
+@media (max-width: 767px) { .header .navbar { padding-left: 20px; padding-right: 20px; } }
+.header .navbar { padding-top: 10px; padding-bottom: 10px; }
+.pub-list-item > a, .hb-attachment-link { color: #1565c0; }
+.dark .pub-list-item > a, .dark .hb-attachment-link { color: #bbdefb; }
+.hb-attachment-link-small { border: 1px solid currentColor; border-radius: 3px; padding: 2px 7px; line-height: 1.4; }

@@ -6,5 +6,11 @@ resources/
 public/
 jsconfig.json
 node_modules/
-go.sum
 .hugo_build.lock
+
+# Dependency research and local verification output
+.migration/
+hugo_stats.json
+pagefind/
+static/pagefind/
+*.log

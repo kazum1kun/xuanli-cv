@@ -1,0 +1,30 @@
+name: Build website
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-go@v6
+        with:
+          go-version: '1.27.1'
+          cache: false
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.166.0'
+          extended: true
+      - run: npm ci
+      - run: npm run build
+      - run: python scripts/check-site.py

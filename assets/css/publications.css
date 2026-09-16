@@ -1,0 +1,116 @@
+.xlin-publications {
+  width: min(100% - 48px, 1000px);
+  margin: 0 auto;
+  padding: 20px 0 60px;
+}
+
+.xlin-publications [hidden] {
+  display: none !important;
+}
+
+.xlin-publications__header {
+  margin-bottom: 40px;
+}
+
+.xlin-publications h1 {
+  margin: 0 0 24px;
+  font-family: var(--hb-font-heading);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.xlin-publications__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+  font-size: 16px;
+}
+
+.xlin-publications__filters > div {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+.xlin-publications__filters > .xlin-publications__search {
+  flex: 2 1 280px;
+}
+
+.xlin-publications__filters label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.xlin-publications__filters input,
+.xlin-publications__filters select,
+.xlin-publications__filters button {
+  min-height: 44px;
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  padding: 9px 12px;
+  font: inherit;
+  color: inherit;
+  background: var(--hb-color-background, #fff);
+}
+
+.xlin-publications__filters input,
+.xlin-publications__filters select {
+  width: 100%;
+}
+
+.xlin-publications__filters button {
+  color: var(--color-primary-600);
+  border-color: currentColor;
+  cursor: pointer;
+}
+
+.xlin-publications__filters button:hover {
+  background: var(--color-primary-50);
+}
+
+.xlin-publications__filters :focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 3px;
+}
+
+.xlin-publications__count {
+  margin: 22px 0 30px;
+  font-size: 16px;
+}
+
+.xlin-publications__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.xlin-publications__list > li {
+  margin-bottom: 30px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.xlin-publications__empty {
+  padding: 20px 0;
+}
+
+.dark .xlin-publications__filters button {
+  color: var(--color-primary-300);
+}
+
+.dark .xlin-publications__filters button:hover {
+  background: var(--color-primary-950);
+}
+
+@media (max-width: 480px) {
+  .xlin-publications {
+    width: calc(100% - 32px);
+    padding-top: 8px;
+  }
+
+  .xlin-publications__filters > div {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "xuanli-cv",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Xuanli Lin's academic website on HugoBlox Academic CV",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --minify --cleanDestinationDir --panicOnWarning --printPathWarnings --printI18nWarnings && npm run pagefind",
+    "pagefind": "pagefind --site public"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.10",
+    "pagefind": "^1.4.0",
+    "preact": "^10.27.2",
+    "tailwindcss": "^4.1.12"
+  },
+  "allowScripts": {
+    "@parcel/watcher": false
+  }
+}

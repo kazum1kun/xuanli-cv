@@ -1,50 +1,53 @@
-# [Hugo Academic Theme](https://github.com/wowchemy/starter-hugo-academic)
+# Xuanli Lin's academic website
 
-[![Screenshot](./preview.png)](https://wowchemy.com/hugo-themes/)
+Source for [xlin.io](https://xlin.io), migrated to the current [HugoBlox Academic CV template](https://hugoblox.com/templates/academic-cv).
 
-The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
+## Build and preview
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://wowchemy.com/hugo-themes/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/wowchemy?label=Follow%20on%20Twitter)](https://twitter.com/wowchemy)
+Requirements: **Hugo Extended 0.166.0**, **Node.js 22 or later**, and **Go** (deployment uses 1.27.1). Python 3 is used only for the output checker and the static preview below.
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, widget-based Wowchemy page builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+```sh
+npm ci
+npm run build
+python scripts/check-site.py
+python -m http.server 1313 --bind 127.0.0.1 --directory public
+```
 
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
+Open http://127.0.0.1:1313 to preview the complete production output, including search. `npm run build` regenerates `public/`, compiles Tailwind CSS, and indexes pages with Pagefind. Hugo fails on any warning, including path and translation warnings; warnings are not suppressed.
 
-[Check out the latest demo](https://academic-demo.netlify.app/) of what you'll get in less than 10 minutes, or [get inspired by our academics and research groups](https://wowchemy.com/creators/).
+For live content/style editing, use `npm run dev`. Rebuild and use the static preview to test the production search index after content changes.
 
-The integrated [**Wowchemy**](https://wowchemy.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+Netlify runs the same production build. Deploy previews and branch previews use their own base URL. The GitHub Actions workflow also builds with warnings treated as errors and checks generated links and metadata.
 
-- 👉 [**Get Started**](https://wowchemy.com/hugo-themes/)
-- 📚 [View the **documentation**](https://wowchemy.com/docs/)
-- 💬 [Chat with the **Wowchemy research community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=%23MadeWithWowchemy&src=typed_query)
-- ⬇️ **Automatically import your publications from BibTeX** with the [Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli)
-- 💡 [Suggest an improvement](https://github.com/wowchemy/wowchemy-hugo-themes/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://wowchemy.com/docs/hugo-tutorials/update/) and [Release Notes](https://github.com/wowchemy/wowchemy-hugo-themes/releases)
+## Content and appearance
 
-## We ask you, humbly, to support this open source movement
+- `data/authors/xuanli.yaml`: profile using `hugoblox/author/v1`.
+- `assets/media/authors/xuanli.jpg`: profile photograph.
+- `content/_index.md`: homepage blocks and original section anchors.
+- `content/publication/`: publications and their PDF, BibTeX, and slide bundles.
+- `content/event/`: talks; existing `/talk/<title>/` URLs are preserved.
+- `config/_default/params.yaml`: site settings under `hugoblox`, schema `2.0`.
+- `data/themes/xlin.yaml`, `data/fonts/xlin.yaml`, `assets/css/custom.css`: original colors, Roboto/Montserrat typography, centered profile, and responsive two-column sections.
 
-Today we ask you to defend the open source independence of the Wowchemy website builder and themes 🐧
+The dated biography, education, teaching history, publication status wording, and source files are preserved. This migration does not update the underlying CV facts.
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+### Current publication and event fields
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+Follow the official [publication example](https://github.com/HugoBlox/hugo-theme-academic-cv/blob/main/content/publications/conference-paper/index.md), [event example](https://github.com/HugoBlox/hugo-theme-academic-cv/blob/main/content/events/example/index.md), and [author example](https://github.com/HugoBlox/hugo-theme-academic-cv/blob/main/data/authors/me.yaml).
 
-<p align="center"><a href="https://wowchemy.com/templates/" target="_blank" rel="noopener"><img src="https://wowchemy.com/uploads/readmes/academic_logo_200px.png" alt="Hugo Academic Theme for Wowchemy Website Builder"></a></p>
+Publications use structured `publication.name` / `publication.short_name`, `hugoblox.ids.doi`, and typed `links`. A bundle's `<folder-name>.pdf` and `cite.bib` are discovered automatically; avoid declaring the same PDF a second time. Use bundle-relative filenames for slides so Hugo resolves the correct public URL.
 
-## Demo image credits
+Talks use `event_name`, `event_start`, `event_end`, and `event_all_day`. `date` is the page publication date, distinct from the talk's start time.
 
-- [Open book](https://unsplash.com/photos/J4kK8b9Fgj8)
-- [Course](https://unsplash.com/photos/JKUTrJ4vK00)
+### Small local extensions
 
-## Latest news
+- `talk-summary` view retains talk dates, locations, summaries, and slide buttons.
+- Author metadata highlights Xuanli Lin and keeps contribution notes without linking to unpublished author pages.
+- The publication archive retains text, year, and publication-type filters, with all records available without JavaScript.
+- A Pagefind hook includes abstracts and public metadata in site search, because the upstream template only marks titles and Markdown bodies for indexing.
 
-<!--START_SECTION:news-->
-* [Easily make an academic CV website to get more cites and grow your audience 🚀](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;easily-make-academic-website&#x2F;)
-* [What&#39;s new in v5.2?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.2&#x2F;)
-* [What&#39;s new in v5.1?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.1&#x2F;)
-* [Version 5.0 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-february-2021&#x2F;)
-* [Version 5.0 Beta 3 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-beta-3-february-2021&#x2F;)
-<!--END_SECTION:news-->
+## Upstream baseline
+
+Migration checked against Academic CV commit `3aacb2ac2c3f6aeaecac4febe915c2fb30122903` (2026-09-13). Its [module pins](https://github.com/HugoBlox/hugo-theme-academic-cv/blob/3aacb2ac2c3f6aeaecac4febe915c2fb30122903/go.mod) use the latest framework module code, Blox `v0.0.0-20260527025321-61f41d3667f1`.
+
+The template's minimum Hugo version is older than the installed version. Image settings and language configuration also use Hugo 0.166's current schema. Keep `go.sum` and `package-lock.json` committed for reproducible dependency resolution.

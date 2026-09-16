@@ -1,0 +1,61 @@
+{{ define "main" }}
+{{ $publications := .RegularPages.ByDate.Reverse }}
+{{ $years := slice }}
+{{ $types := slice }}
+{{ range $publications }}
+  {{ $years = $years | append (.Date.Format "2006") }}
+  {{ range .Params.publication_types }}
+    {{ $types = $types | append . }}
+  {{ end }}
+{{ end }}
+
+<main class="xlin-publications" aria-labelledby="publication-title">
+  <header class="xlin-publications__header">
+    <h1 id="publication-title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="prose dark:prose-invert">{{ . }}</div>{{ end }}
+  </header>
+
+  {{/* Controls are revealed only after the script is ready; every citation is server-rendered. */}}
+  <form class="xlin-publications__filters" data-publication-filters hidden role="search" aria-label="Filter publications">
+    <div class="xlin-publications__search">
+      <label for="publication-search">Search publications</label>
+      <input id="publication-search" name="q" type="search" placeholder="Title, author, or abstract" autocomplete="off" aria-controls="publication-list">
+    </div>
+    <div>
+      <label for="publication-year">Year</label>
+      <select id="publication-year" name="year" aria-controls="publication-list">
+        <option value="">All years</option>
+        {{ range sort ($years | uniq) "value" "desc" }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+      </select>
+    </div>
+    <div>
+      <label for="publication-type">Publication type</label>
+      <select id="publication-type" name="type" aria-controls="publication-list">
+        <option value="">All types</option>
+        {{ range sort ($types | uniq) }}
+          {{ $label := i18n (printf "pub_%s" (strings.Replace . "-" "_")) | default (strings.Title (strings.Replace . "-" " ")) }}
+          <option value="{{ . }}">{{ $label }}</option>
+        {{ end }}
+      </select>
+    </div>
+    <button type="reset">Clear filters</button>
+  </form>
+
+  <p class="xlin-publications__count" data-publication-count role="status" aria-live="polite" aria-atomic="true">{{ len $publications }} publications</p>
+
+  <ul id="publication-list" class="xlin-publications__list" role="list">
+    {{ range $index, $item := $publications }}
+      {{ $authorNames := slice }}
+      {{ range $item.Params.authors }}
+        {{ $profile := partial "functions/get_author_profile" (dict "slug" (. | urlize) "title" .) }}
+        {{ $authorNames = $authorNames | append ($profile.title | default .) }}
+      {{ end }}
+      {{ $searchText := printf "%s %s %s" $item.Title (delimit $authorNames " ") ($item.Params.abstract | default "" | plainify) }}
+      <li data-publication data-year="{{ $item.Date.Format "2006" }}" data-types="{{ delimit ($item.Params.publication_types | default slice) " " }}" data-search="{{ $searchText }}">
+        {{ partial "functions/render_view" (dict "page" $item "item" $item "view" "citation" "index" $index) }}
+      </li>
+    {{ end }}
+  </ul>
+  <p class="xlin-publications__empty" data-publication-empty hidden>No publications match these filters. Try another search or clear the filters.</p>
+</main>
+{{ end }}

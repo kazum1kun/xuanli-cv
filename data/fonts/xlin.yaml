@@ -1,0 +1,22 @@
+# Original site's typefaces in the current HugoBlox font schema.
+hugoblox:
+  meta:
+    format: hugoblox-font@1
+    name: Xuanli Lin
+    vendor: xlin
+    version: '1.0.0'
+  families:
+    heading: Montserrat
+    body: Roboto
+    code: Roboto Mono
+  weights:
+    heading: [300, 400, 600, 700]
+    body: [400, 500, 700]
+    code: [400]
+  leading:
+    heading: 1.25
+    body: 1.65
+    code: 1.5
+  tracking:
+    heading: '0'
+    body: '0'

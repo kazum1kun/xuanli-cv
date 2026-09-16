@@ -1,0 +1,6 @@
+{{ if and .IsSection (eq .Type "publications") }}
+  {{ $styles := resources.Get "css/publications.css" | resources.Minify | fingerprint "sha256" }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{ $script := resources.Get "js/publication-filter.js" | js.Build (dict "minify" true "targetPath" "js/publication-filter.js") | fingerprint "sha256" }}
+  <script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+{{ end }}

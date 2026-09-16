@@ -1,114 +1,57 @@
-# SITE SETUP
-# Guide: https://wowchemy.com/docs/getting-started/
-# Documentation: https://wowchemy.com/docs/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
-
-# Appearance
-
-appearance:
-  theme_day: minimal
-  theme_night: minimal
-  font: minimal
-  font_size: L
-
-# SEO
-
-marketing:
-  # seo:
-  #   site_type: Person
-  #   local_business_type: ''
-  #   org_name: ''
-  #   description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
-  #   twitter: 'wowchemy'
-  analytics:
-    google_analytics: ''
-    baidu_tongji: ''
-  verification:
-    google: ''
-    baidu: ''
-
-# Site header
-
-header:
-  navbar:
+# Current configuration schema: https://hugoblox.com/templates/academic-cv
+hugoblox:
+  schema: '2.0'
+  identity:
+    name: Xuanli Lin
+    type: person
+    description: 'Research in network optimization, network security, artificial intelligence, and the Internet of Things at Arizona State University.'
+  theme:
+    mode: system
+    pack: xlin
+  typography:
+    pack: xlin
+  layout:
+    radius: sm
+    spacing: comfortable
+    avatar_shape: circle
+  header:
     enable: true
-    align: l
-    show_logo: true
-    show_language: false
-    show_day_night: true
-    show_search: true
-    highlight_active_link: true
-
-# Site footer
-
-footer:
+    style: navbar
+    sticky: true
+    align: left
+    search: true
+    theme_toggle: true
+    theme_picker: false
+    language_switcher: false
+  footer:
+    style: minimal
+    language_switcher: false
   copyright:
-    notice: '© {year} Xuanli Lin. This work is licensed under {license}'
+    notice: '© {year} {name}. This work is licensed under {license}'
     license:
-      enable: true
+      type: cc
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
-
-# Localization
-
-locale:
-  date_format: 'Jan 2, 2006'
-  time_format: '3:04 PM'
-  address_format: en-us
-
-# Site features
-
-features:
-  syntax_highlighter:
-    theme_light: github-light
-    theme_dark: dracula
-  math:
-    enable: false
-  privacy_pack:
+  content:
+    math:
+      enable: false
+    toc:
+      enable: false
+    reading_time:
+      enable: false
+    citations:
+      style: apa
+  search:
+    enable: true
+  comments:
     enable: false
   repository:
-    url: 'https://github.com/<username>/<repository>'
+    enable: false
+    url: 'https://github.com/kazum1kun/xuanli-cv'
+    branch: main
     content_dir: content
-    branch: main
-  avatar:
-    gravatar: false
-    shape: circle
-  comment:
-    provider: ''
-    disqus:
-      shortname: ''
-      show_count: true
-    commento:
-      url: ''
-    giscus:
-      repo: ''
-      repo_id: ''
-      category: ''
-      category_id: ''
-  search:
-    provider: wowchemy
-    algolia:
-      app_id: ''
-      api_key: ''
-      index_name: ''
-      show_logo: false
-  map:
-    provider: ''
-    api_key: ''
-    zoom: 15
-
-# Extensions
-
-extensions:
-  cms:
-    branch: main
-    local_backend: false
-  academicons:
-    enable: true
-
-# Security
-
-security:
-  # Allow frame for embedding speaker notes in slides
-  allow_frame: true
+  locale:
+    date_format: 'Jan 2, 2006'
+    time_format: '3:04 PM'
+    address_format: en-us

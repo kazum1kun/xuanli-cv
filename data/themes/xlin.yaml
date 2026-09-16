@@ -1,0 +1,36 @@
+# Preserve the original site's Minimal theme colors.
+hugoblox:
+  meta:
+    format: hugoblox-theme@1
+    name: Xuanli Lin
+    vendor: xlin
+    version: '1.0.0'
+  type: dual
+  light:
+    colors:
+      primary: '#1565c0'
+      secondary: '#1565c0'
+      neutral: '#34495e'
+    surfaces:
+      background: '#ffffff'
+      foreground: '#313131'
+      header:
+        background: '#ffffff'
+        foreground: '#313131'
+      footer:
+        background: '#ffffff'
+        foreground: '#555555'
+  dark:
+    colors:
+      primary: '#bbdefb'
+      secondary: '#bbdefb'
+      neutral: '#f8f8f2'
+    surfaces:
+      background: '#23252f'
+      foreground: '#f8f8f2'
+      header:
+        background: '#262833'
+        foreground: '#f8f8f2'
+      footer:
+        background: '#23252f'
+        foreground: '#b8bac4'

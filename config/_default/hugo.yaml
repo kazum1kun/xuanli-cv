@@ -1,31 +1,18 @@
-# Configuration of Hugo
-# Guide: https://wowchemy.com/docs/getting-started/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
-
-title: Xuanli Lin # Website name
-baseURL: 'https://xlin.io/' # Website URL
-
-############################
-## LANGUAGE
-############################
-
+# Based on the latest HugoBlox Academic CV template.
+title: Xuanli Lin
+baseURL: 'https://xlin.io/'
 defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
-
-############################
-## ADVANCED
-############################
-
 enableGitInfo: false
 summaryLength: 30
-paginate: 10
+pagination:
+  pagerSize: 10
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
-ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+ignoreFiles: ['\.ipynb$', '.ipynb_checkpoints$', '\.Rmd$', '\.Rmarkdown$', '_cache$']
 permalinks:
   event: '/talk/:slug/'
   tags: '/tag/:slug/'
@@ -33,11 +20,27 @@ permalinks:
   publication_types: '/publication-type/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]
+build:
+  buildStats:
+    enable: true
+caches:
+  misc:
+    dir: ':resourceDir/_gen/misc'
+  getresource:
+    dir: ':resourceDir/_gen/getresource'
 imaging:
+  _merge: none
   resampleFilter: lanczos
-  quality: 75
+  jpeg:
+    quality: 90
+  webp:
+    quality: 90
+    hint: picture
+  avif:
+    quality: 90
+    hint: picture
   anchor: smart
 timeout: 600000
 taxonomies:
@@ -47,18 +50,11 @@ taxonomies:
   author: authors
 markup:
   _merge: deep
-related:
-  threshold: 80
-  includeNewer: true
-  toLower: true
-  indices:
-    - name: tags
-      weight: 100
-    - name: categories
-      weight: 70
+  highlight:
+    lineNos: false
 security:
   _merge: deep
+  exec:
+    allow: ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']
 sitemap:
-  _merge: deep
-minify:
   _merge: deep
