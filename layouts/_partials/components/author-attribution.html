@@ -1,0 +1,24 @@
+{{/* Consistent names and profile links in paper, talk, and archive bylines. */}}
+{{- $profile := .profile -}}
+{{- $showProfile := partial "functions/show_author_profile" $profile -}}
+{{- $url := "" -}}
+{{- if $profile.is_owner -}}
+  {{- $url = site.Home.RelPermalink -}}
+{{- else if $showProfile -}}
+  {{- with site.GetPage (printf "/authors/%s" $profile.slug) -}}
+    {{- $url = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- $class := "xlin-author" -}}
+{{- if $profile.is_owner -}}
+  {{- $class = "xlin-author xlin-author-owner font-bold" -}}
+{{- end -}}
+{{- if $url -}}<a href="{{ $url }}" class="{{ $class }}">{{- else -}}<span class="{{ $class }}">{{- end -}}
+  {{- if and .avatar $showProfile -}}
+    {{- with $profile.avatar -}}
+      {{- $avatar := .Fill "48x48 Center webp" -}}
+      <img src="{{ $avatar.RelPermalink }}" width="20" height="20" alt="" class="xlin-author-avatar" loading="lazy" />
+    {{- end -}}
+  {{- end -}}
+  {{- $profile.title -}}
+{{- if $url -}}</a>{{- else -}}</span>{{- end -}}

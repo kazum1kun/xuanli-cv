@@ -1,0 +1,23 @@
+schema: hugoblox/author/v1
+slug: zunzheng-zhang
+is_owner: false
+name:
+  display: Zunzheng Zhang
+  given: Zunzheng
+  family: Zhang
+role: PhD Student in Computer Science
+bio: |
+  Zunzheng Zhang is a PhD student in computer science at Arizona State University. He studies network optimization and quantum networks. Before joining ASU, he earned his bachelor's and master's degrees in electronic engineering from Nanjing University in 2021 and 2024, respectively.
+affiliations:
+  - name: Arizona State University
+    url: https://scai.engineering.asu.edu/
+links:
+  - icon: hero/envelope
+    url: mailto:zzhan621@asu.edu
+    label: Email
+  - icon: academicons/orcid
+    url: https://orcid.org/0009-0004-3186-4773
+    label: ORCID
+interests:
+  - Network Optimization
+  - Quantum Networks

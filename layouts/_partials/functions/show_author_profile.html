@@ -1,0 +1,6 @@
+{{/* Author term settings hide profiles while preserving full-name attribution. */}}
+{{- $show := .has_data -}}
+{{- with site.GetPage (printf "/authors/%s" .slug) -}}
+  {{- if eq .Params.profile false -}}{{- $show = false -}}{{- end -}}
+{{- end -}}
+{{- return $show -}}

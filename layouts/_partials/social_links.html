@@ -1,0 +1,19 @@
+{{/* Preserve profile link order and expose readable labels for every icon. */}}
+{{ with .Params.profiles }}
+<div class="flex flex-wrap text-neutral-500 dark:text-neutral-300">
+  {{ range . }}
+    {{ $link := .url }}
+    {{ $scheme := (urls.Parse $link).Scheme }}
+    {{ if not $scheme }}{{ $link = $link | relLangURL }}{{ end }}
+    {{ $label := .label | default (.icon | title) }}
+    <a
+      class="pr-4 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="{{ $link | safeURL }}"
+      {{ if in (slice "http" "https") $scheme }}target="_blank" rel="me noopener noreferrer"{{ end }}
+      aria-label="{{ $label }}"
+      title="{{ $label }}"
+    >{{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1em;\" aria-hidden=\"true\"") }}</a>
+  {{ end }}
+</div>
+{{ end }}

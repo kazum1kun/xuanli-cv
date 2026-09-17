@@ -5,27 +5,30 @@ name:
   display: Xuanli Lin
   given: Xuanli
   family: Lin
-role: PhD in Computer Science
+role: PhD Student in Computer Science
 bio: |
-  I am a fourth year PhD student in Computer Science department at Arizona State University. I am supervised by [Dr. Guoliang Xue](https://www.public.asu.edu/~gxue1/).
+  Xuanli Lin is a fifth-year PhD student in the Computer Science department at Arizona State University, supervised by [Dr. Guoliang Xue](/authors/guoliang-xue/).
 
-  My research interest include network optimization, network security, artificial intelligence, and the Internet of Things.
+  His research interests include network optimization, network security, artificial intelligence, and the Internet of Things.
 affiliations:
   - name: Arizona State University
     url: https://scai.engineering.asu.edu/
 links:
   - icon: hero/envelope
-    url: /#contact
-    label: Contact
-  - icon: hero/academic-cap
+    url: mailto:kazumi@asu.edu
+    label: Email
+  - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=pk_lv7sAAAAJ
     label: Google Scholar
-  - icon: brands/github
-    url: https://github.com/kazum1kun
-    label: GitHub
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/xuanlilin/
     label: LinkedIn
+  - icon: brands/github
+    url: https://github.com/kazum1kun
+    label: GitHub
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-0332-8645
+    label: ORCID
 interests:
   - Network Optimization
   - Network Security

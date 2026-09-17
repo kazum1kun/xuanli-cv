@@ -1,0 +1,32 @@
+schema: hugoblox/author/v1
+slug: nageswara-s-v-rao
+is_owner: false
+name:
+  display: Nageswara S. V. Rao
+  given: Nageswara S. V.
+  family: Rao
+role: Corporate Fellow
+bio: |
+  Nageswara S. V. Rao is a Corporate Fellow at Oak Ridge National Laboratory, which he joined in 1993. His research covers high-performance and quantum networking, information fusion, machine learning, and connected scientific instruments. He earned his PhD in computer science from Louisiana State University in 1988. He is an IEEE Fellow and a recipient of the IEEE Computer Society Technical Achievement Award and an R&D 100 Award.
+affiliations:
+  - name: Oak Ridge National Laboratory
+    url: https://www.ornl.gov/
+links:
+  - icon: hero/globe-alt
+    url: https://www.ornl.gov/staff-profile/nageswara-s-rao
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:raons@ornl.gov
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=wrDhhQkAAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/nageswara-nagi-rao-00366a5/
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0002-3408-5941
+    label: ORCID
+  - icon: academicons/researchgate
+    url: https://www.researchgate.net/profile/Nageswara-Rao-8
+    label: ResearchGate

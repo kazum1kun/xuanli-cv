@@ -1,0 +1,32 @@
+schema: hugoblox/author/v1
+slug: kuai-xu
+is_owner: false
+name:
+  display: Kuai Xu
+  given: Kuai
+  family: Xu
+role: Professor of Computer Science
+bio: |
+  Kuai Xu is a professor of computer science in the School of Mathematical and Natural Sciences at Arizona State University. His research covers network security, network measurement and analysis, cloud computing, home networks, and online social networks. He received his PhD in Computer Science from the University of Minnesota in 2006 and his bachelor's and master's degrees in Computer Science from Peking University in 1998 and 2001, respectively.
+affiliations:
+  - name: Arizona State University
+    url: https://www.asu.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://search.asu.edu/profile/347246
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:kuai.xu@asu.edu
+    label: Email
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0001-6659-6773
+    label: ORCID
+  - icon: academicons/dblp
+    url: https://dblp.org/pid/x/KuaiXu
+    label: DBLP
+interests:
+  - Network Security
+  - Network Measurement and Analysis
+  - Cloud Computing
+  - Home Networks
+  - Online Social Networks

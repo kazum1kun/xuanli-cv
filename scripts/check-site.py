@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "public"
 ORIGIN = "https://xlin.io"
 PUBLICATIONS = (
-    "globalcom-24-entanglement", "globalcom-24-pricing", "icccn-22",
+    "globecom-24-entanglement", "globecom-24-pricing", "icccn-22",
     "infocom-23", "iotdi-23", "jsac-22", "mass-23", "master-thesis",
     "milcom-24-mvat", "milcom-24-offloading", "modprod-21",
 )
@@ -140,6 +140,73 @@ def main():
         if len(words) < 40:
             failures.append(f"{route}: only {len(words)} searchable words; abstract may be excluded")
 
+    # Check rendered attribution against every source record, including new papers.
+    profiles = {}
+    hidden_profiles = set()
+    for path in (ROOT / "data" / "authors").glob("*.yaml"):
+        source = path.read_text(encoding="utf-8")
+        display = re.search(r"^  display: (.+)$", source, re.MULTILINE)
+        if display:
+            profiles[path.stem] = display.group(1).strip("\"'")
+        if "is_owner: true" in source:
+            continue
+        route = f"/authors/{path.stem}/"
+        document = documents.get(file_for(route))
+        author_page = ROOT / "content" / "authors" / path.stem / "_index.md"
+        if author_page.is_file() and re.search(r"^profile: false$", author_page.read_text(encoding="utf-8"), re.MULTILINE):
+            hidden_profiles.add(path.stem)
+            if document is not None:
+                failures.append(f"Hidden author profile still rendered: {route}")
+            continue
+        if document is None:
+            failures.append(f"Author profile missing: {route}")
+            continue
+        if not any(kind == "src" and f"/{path.stem}_" in value
+                   for kind, value in document.links):
+            failures.append(f"{route}: author portrait missing")
+        if profiles.get(path.stem, "") not in " ".join(document.search_text):
+            failures.append(f"{route}: author biography is not searchable")
+        if not document.meta.get("description", "").startswith(profiles.get(path.stem, "")):
+            failures.append(f"{route}: missing biography description")
+
+    publication_count = 0
+    for source_path in (ROOT / "content" / "publication").glob("*/index.md"):
+        publication_count += 1
+        source = source_path.read_text(encoding="utf-8")
+        match = re.search(r"^authors:\n((?:- .+\n)+)", source, re.MULTILINE)
+        raw_authors = [line[2:] for line in match.group(1).splitlines()] if match else []
+        expected_names = [profiles.get(author, author) for author in raw_authors]
+        route = f"/publication/{source_path.parent.name}/"
+        document = documents.get(file_for(route))
+        if document is None:
+            failures.append(f"Publication missing: {route}")
+            continue
+        article = next((schema for schema in document.schemas
+                        if schema.get("@type") == "Article"), {})
+        authors = article.get("author", [])
+        if isinstance(authors, dict):
+            authors = [authors]
+        if [author.get("name") for author in authors] != expected_names:
+            failures.append(f"{route}: structured author names/order differ from source")
+        hrefs = {urlsplit(value).path for kind, value in document.links if kind == "href"}
+        for author in raw_authors:
+            if author in profiles and author != "xuanli" and author not in hidden_profiles and f"/authors/{author}/" not in hrefs:
+                failures.append(f"{route}: missing profile link for {author}")
+            if author in hidden_profiles:
+                person = next((person for person in authors if person.get("name") == profiles[author]), {})
+                if person.get("url"):
+                    failures.append(f"{route}: hidden author has a structured profile URL: {author}")
+        if "abstract" not in document.ids:
+            failures.append(f"{route}: full abstract missing")
+        if "Abstract source:" in source or "Abstract source:" in " ".join(document.search_text):
+            failures.append(f"{route}: abstract-source line remains")
+
+    for path, document in documents.items():
+        for author in hidden_profiles:
+            for kind, value in document.links:
+                if f"/authors/{author}/" in value or (kind in {"src", "srcset"} and f"/{author}_" in value):
+                    failures.append(f"{route_for(path)}: hidden author profile or portrait still linked: {author}")
+
     if not (OUTPUT / "pagefind" / "pagefind.js").is_file():
         failures.append("Pagefind index missing; run npm run build before checking")
     if failures:
@@ -148,7 +215,9 @@ def main():
             print(f"- {failure}")
         return 1
     print(f"Checked {len(documents)} HTML pages and {checked_links} internal references; "
-          f"all {len(LEGACY_PAGES)} original content routes, metadata, and abstract search coverage pass.")
+          f"all {len(LEGACY_PAGES)} original content routes, metadata, and abstract search coverage pass. "
+          f"Verified attribution on {publication_count} publications, {len(profiles) - len(hidden_profiles) - 1} visible coauthor profiles, "
+          f"and {len(hidden_profiles)} hidden profiles.")
     return 0
 
 

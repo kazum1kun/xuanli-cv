@@ -1,0 +1,26 @@
+schema: hugoblox/author/v1
+slug: kevin-s-chan
+is_owner: false
+name:
+  display: Kevin S. Chan
+  given: Kevin S.
+  family: Chan
+role: Lead Research Electronics Engineer
+bio: |
+  Kevin S. Chan is a lead research electronics engineer and Network Science Team Lead at the U.S. Army DEVCOM Army Research Laboratory. His research spans network science, edge computing, and cybersecurity. He holds a bachelor's degree from Carnegie Mellon University and master's and doctoral degrees in electrical and computer engineering from Georgia Tech. He received the IEEE Communications Society's Leonard G. Abraham Prize in 2021.
+affiliations:
+  - name: U.S. Army DEVCOM Army Research Laboratory
+    url: https://www.arl.army.mil/
+links:
+  - icon: hero/envelope
+    url: mailto:kevin.s.chan.civ@army.mil
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=50JAKT0AAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/kevin-chan-767a0464
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0002-6425-5403
+    label: ORCID

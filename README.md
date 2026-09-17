@@ -22,14 +22,14 @@ Netlify runs the same production build. Deploy previews and branch previews use 
 ## Content and appearance
 
 - `data/authors/xuanli.yaml`: profile using `hugoblox/author/v1`.
-- `assets/media/authors/xuanli.jpg`: profile photograph.
+- `assets/media/authors/xuanli.jpg`: active profile photograph. Replace this file to update the photo; the legacy `content/authors/xuanli/avatar.jpg` is no longer used by the theme. Rebuild with `npm run build`, then reload the preview.
 - `content/_index.md`: homepage blocks and original section anchors.
 - `content/publication/`: publications and their PDF, BibTeX, and slide bundles.
 - `content/event/`: talks; existing `/talk/<title>/` URLs are preserved.
 - `config/_default/params.yaml`: site settings under `hugoblox`, schema `2.0`.
 - `data/themes/xlin.yaml`, `data/fonts/xlin.yaml`, `assets/css/custom.css`: original colors, Roboto/Montserrat typography, centered profile, and responsive two-column sections.
 
-The dated biography, education, teaching history, publication status wording, and source files are preserved. This migration does not update the underlying CV facts.
+The dated biography, education, and teaching history are preserved. Publications and talks were reconciled with the complete Google Scholar profile in September 2026; see [publication sources and abstract verification](docs/publication-sources.md).
 
 ### Current publication and event fields
 
@@ -37,14 +37,18 @@ Follow the official [publication example](https://github.com/HugoBlox/hugo-theme
 
 Publications use structured `publication.name` / `publication.short_name`, `hugoblox.ids.doi`, and typed `links`. A bundle's `<folder-name>.pdf` and `cite.bib` are discovered automatically; avoid declaring the same PDF a second time. Use bundle-relative filenames for slides so Hugo resolves the correct public URL.
 
+Every publication has a concise editorial `summary` in its front matter and the full original abstract under `## Abstract` in its Markdown body. Write the summary from the verified abstract; do not repeat it in an Overview section or store the full abstract in front matter. The summary appears in the page metadata and supplies previews and descriptions; both it and the full abstract are searchable. Source verification and any publisher-access fallbacks are recorded in [publication sources](docs/publication-sources.md), without a separate abstract-source line on the public pages.
+
+Papers without a retrieved local PDF have `pdf_status: pending` and a visible availability note. To add a missing PDF, place it in the matching bundle, remove the pending status and link, and replace the availability note. Preprints and patent applications retain their own publication types.
+
 Talks use `event_name`, `event_start`, `event_end`, and `event_all_day`. `date` is the page publication date, distinct from the talk's start time.
 
 ### Small local extensions
 
 - `talk-summary` view retains talk dates, locations, summaries, and slide buttons.
-- Author metadata highlights Xuanli Lin and keeps contribution notes without linking to unpublished author pages.
+- Author metadata highlights Xuanli Lin, preserves author order and contribution notes, and links recurring coauthors to their profiles. Ten coauthors have stored biographies and portraits, with eight currently public; Zhaofeng Zhang and Alena Chang are temporarily hidden. See [author sources and visibility settings](docs/author-sources.md). Profile data lives in `data/authors/`, portraits in `assets/media/authors/`, and author visibility settings in `content/authors/`. Publication and talk author lists use the matching profile slugs. Hidden or unprofiled authors retain their full names without links, portraits, or bio cards. Article structured data credits every author in order.
 - The publication archive retains text, year, and publication-type filters, with all records available without JavaScript.
-- A Pagefind hook includes abstracts and public metadata in site search, because the upstream template only marks titles and Markdown bodies for indexing.
+- Publication summaries and body abstracts are indexed directly by Pagefind. A hook also indexes public author/venue/tag metadata and event abstracts.
 
 ## Upstream baseline
 

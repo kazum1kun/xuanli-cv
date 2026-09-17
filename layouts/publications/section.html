@@ -19,7 +19,7 @@
   <form class="xlin-publications__filters" data-publication-filters hidden role="search" aria-label="Filter publications">
     <div class="xlin-publications__search">
       <label for="publication-search">Search publications</label>
-      <input id="publication-search" name="q" type="search" placeholder="Title, author, or abstract" autocomplete="off" aria-controls="publication-list">
+      <input id="publication-search" name="q" type="search" placeholder="Title, author, summary, or abstract" autocomplete="off" aria-controls="publication-list">
     </div>
     <div>
       <label for="publication-year">Year</label>
@@ -50,7 +50,7 @@
         {{ $profile := partial "functions/get_author_profile" (dict "slug" (. | urlize) "title" .) }}
         {{ $authorNames = $authorNames | append ($profile.title | default .) }}
       {{ end }}
-      {{ $searchText := printf "%s %s %s" $item.Title (delimit $authorNames " ") ($item.Params.abstract | default "" | plainify) }}
+      {{ $searchText := printf "%s %s %s %s" $item.Title (delimit $authorNames " ") ($item.Params.summary | default "" | plainify) $item.Plain }}
       <li data-publication data-year="{{ $item.Date.Format "2006" }}" data-types="{{ delimit ($item.Params.publication_types | default slice) " " }}" data-search="{{ $searchText }}">
         {{ partial "functions/render_view" (dict "page" $item "item" $item "view" "citation" "index" $index) }}
       </li>

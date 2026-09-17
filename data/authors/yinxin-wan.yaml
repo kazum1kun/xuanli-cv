@@ -1,0 +1,41 @@
+schema: hugoblox/author/v1
+slug: yinxin-wan
+is_owner: false
+name:
+  display: Yinxin Wan
+  given: Yinxin
+  family: Wan
+role: Assistant Professor of Computer Science
+bio: |
+  Yinxin Wan is an assistant professor in the Department of Computer Science at the University of Massachusetts Boston. His research focuses on cybersecurity, secure and trustworthy artificial intelligence, network measurement, the Internet of Things, and quantum networking. He received his PhD in Computer Science from Arizona State University in 2023, advised by Guoliang Xue and Kuai Xu, and his bachelor's degree in Information Security from the University of Science and Technology of China.
+affiliations:
+  - name: University of Massachusetts Boston
+    url: https://www.umb.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://www.cs.umb.edu/~ywan/
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:Yinxin.Wan@umb.edu
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=7JufleoAAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/yinxin-wan/
+    label: LinkedIn
+  - icon: brands/github
+    url: https://github.com/CyberAINet
+    label: GitHub
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-1535-5253
+    label: ORCID
+  - icon: academicons/dblp
+    url: https://dblp.org/pid/224/0803.html
+    label: DBLP
+interests:
+  - Cybersecurity
+  - Secure and Trustworthy Artificial Intelligence
+  - Network Measurement
+  - Internet of Things
+  - Quantum Networking

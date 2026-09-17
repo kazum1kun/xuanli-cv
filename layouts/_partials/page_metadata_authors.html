@@ -1,22 +1,20 @@
-{{/* Author names stay unlinked because author archive pages are not rendered. */}}
+{{/* Link authors with verified profiles and retain contribution notes. */}}
 {{- $authors := .Params.authors -}}
 {{- $notes := .Params.author_notes | default slice -}}
+{{- if $notes -}}
+  {{- .Store.Set "has_alpine" true -}}
+{{- end -}}
 {{- with $authors -}}
   {{- if not (reflect.IsSlice $authors) -}}
     {{- $authors = slice $authors -}}
   {{- end -}}
   {{- range $index, $raw := $authors -}}
     {{- $profile := partial "functions/get_author_profile" (dict "slug" ($raw | urlize) "title" $raw) -}}
-    {{- $display := $profile.title | default $raw -}}
     {{- if gt $index 0 -}}, {{ end -}}
-    {{- if $profile.is_owner -}}
-      <strong class="xlin-author-owner font-bold">{{ $display }}</strong>
-    {{- else -}}
-      <span class="xlin-author">{{ $display }}</span>
-    {{- end -}}
+    {{- partial "components/author-attribution.html" (dict "profile" $profile) -}}
     {{- if and (reflect.IsSlice $notes) (lt $index (len $notes)) -}}
       {{- with index $notes $index -}}
-        <sup class="author-notes xlin-author-note" title="{{ . }}" aria-label="{{ $display }}: {{ . }}" tabindex="0">*</sup>
+        {{- partial "components/author-note.html" . -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

@@ -1,0 +1,26 @@
+schema: hugoblox/author/v1
+slug: yanchao-zhang
+is_owner: false
+name:
+  display: Yanchao Zhang
+  given: Yanchao
+  family: Zhang
+role: Professor
+bio: |
+  Yanchao Zhang is a professor in the School of Electrical, Computer and Energy Engineering at Arizona State University. He directs the Cyber and Network Security Group and the DoD Center of Excellence in Future Generation Wireless Technology. His research addresses security and privacy in networked systems, including wireless and mobile networks, the Internet of Things, and cloud and edge computing. He earned his PhD from the University of Florida in 2006 and is an IEEE Fellow.
+affiliations:
+  - name: Arizona State University
+    url: https://www.asu.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://faculty.engineering.asu.edu/yczhang/
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:yczhang@asu.edu
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=xjzQPNYAAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/yanchao-zhang-372b66314
+    label: LinkedIn

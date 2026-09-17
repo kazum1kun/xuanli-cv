@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ $profile := partial "functions/get_author_profile" (dict "slug" (.Data.Term | urlize)) }}
+{{ $publications := where .Pages "Type" "publications" }}
+<main class="xlin-author-page">
+  <section class="xlin-author-profile" aria-labelledby="author-name" data-pagefind-body>
+    {{ with $profile.avatar }}
+      {{ $portrait := .Fill "320x320 Center webp" }}
+      <img class="xlin-author-portrait" src="{{ $portrait.RelPermalink }}" width="160" height="160" alt="{{ $profile.title }}" />
+    {{ end }}
+    <div>
+      <h1 id="author-name" data-pagefind-meta="title">{{ $profile.title }}</h1>
+      {{ with $profile.role }}<p class="xlin-author-role">{{ . }}</p>{{ end }}
+      {{ with $profile.affiliations }}
+        <p class="xlin-author-affiliations">
+          {{ range $index, $affiliation := . }}
+            {{ if $index }} · {{ end }}
+            {{ if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+          {{ end }}
+        </p>
+      {{ end }}
+      {{ with $profile.bio }}<div class="prose prose-slate dark:prose-invert">{{ . | markdownify }}</div>{{ end }}
+      {{ with $profile.links }}
+        <ul class="xlin-author-links" aria-label="Author links">
+          {{ range . }}
+            {{ $label := .label | default "Webpage" }}
+            <li>
+              <a href="{{ .url | safeURL }}" aria-label="{{ $label }}" title="{{ $label }}">
+                {{ partial "functions/get_icon" (dict "name" (.icon | default "hero/link") "attributes" "aria-hidden=\"true\"") }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </section>
+  <section class="xlin-author-publications" aria-labelledby="shared-publications">
+    <h2 id="shared-publications">Publications with Xuanli Lin <span>({{ len $publications }})</span></h2>
+    {{ range $index, $item := $publications.ByDate.Reverse }}
+      {{ partial "functions/render_view" (dict "page" $item "item" $item "view" "citation" "index" $index) }}
+    {{ end }}
+  </section>
+</main>
+{{ end }}

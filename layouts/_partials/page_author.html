@@ -1,0 +1,14 @@
+{{/* Respect both page-level bio settings and individual author visibility. */}}
+{{ if and (ne .Type "page") (not (or (eq site.Params.profile false) (eq .Params.profile false))) }}
+  {{ $page := . }}
+  {{ $authors := .Params.authors }}
+  {{ if not $authors }}
+    {{ with .Scratch.Get "superuser_slug" }}{{ $authors = slice . }}{{ end }}
+  {{ end }}
+  {{ range $authors }}
+    {{ $profile := partial "functions/get_author_profile" . }}
+    {{ if partial "functions/show_author_profile" $profile }}
+      {{ partial "page_author_card" (dict "profile" $profile "page" $page) }}
+    {{ end }}
+  {{ end }}
+{{ end }}

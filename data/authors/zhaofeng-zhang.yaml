@@ -1,0 +1,30 @@
+schema: hugoblox/author/v1
+slug: zhaofeng-zhang
+is_owner: false
+name:
+  display: Zhaofeng Zhang
+  given: Zhaofeng
+  family: Zhang
+role: Assistant Professor of Computer Science
+bio: |
+  Zhaofeng Zhang is an assistant professor of computer science at Delaware State University. He works on edge computing, next-generation wireless networks, and machine learning. He earned a bachelor's degree in electrical engineering from Huazhong University of Science and Technology in 2015, followed by master's and PhD degrees in electrical engineering from Arizona State University in 2016 and 2023. He previously conducted postdoctoral research at ASU.
+affiliations:
+  - name: Delaware State University
+    url: https://www.desu.edu/
+links:
+  - icon: hero/envelope
+    url: mailto:zzhang@desu.edu
+    label: Email
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/zhaofeng-zhang-53a65899
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0002-4285-670X
+    label: ORCID
+  - icon: hero/document-magnifying-glass
+    url: https://openreview.net/profile?id=~Zhaofeng_Zhang1
+    label: OpenReview
+interests:
+  - Edge Computing
+  - Wireless Networks
+  - Machine Learning

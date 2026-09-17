@@ -1,0 +1,29 @@
+schema: hugoblox/author/v1
+slug: alena-chang
+is_owner: false
+name:
+  display: Alena Chang
+  given: Alena
+  family: Chang
+role: Research Scientist I
+bio: |
+  Alena Chang is a research scientist at the Georgia Tech Research Institute, working in quantum research within the Cybersecurity, Information Protection, and Hardware Evaluation Research Laboratory. Chang's research includes algorithms for entanglement distribution in satellite-based quantum networks, including methods that account for satellite movement and inter-satellite links. Chang previously conducted research at Arizona State University's School of Computing and Augmented Intelligence.
+affiliations:
+  - name: Georgia Tech Research Institute
+    url: https://www.gtri.gatech.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://people.research.gatech.edu/alena-chang
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:alena.chang@gtri.gatech.edu
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=hpY6hiMAAAAJ
+    label: Google Scholar
+  - icon: brands/github
+    url: https://github.com/alenachang
+    label: GitHub
+  - icon: academicons/orcid
+    url: https://orcid.org/0009-0007-7550-2856
+    label: ORCID

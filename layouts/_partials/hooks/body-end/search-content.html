@@ -1,12 +1,14 @@
 {{/*
-  Academic CV marks titles and Markdown bodies for Pagefind, but renders
-  abstracts outside those regions. Include the same public metadata in the
-  index without overriding upstream page templates or duplicating visible text.
+  Publication summaries and full body abstracts are already indexed. Keep
+  author/venue/tag metadata searchable, plus legacy event abstracts rendered
+  outside the Markdown body, without duplicating publication text.
   Pagefind merges all data-pagefind-body regions on a page.
 */}}
-{{ if and .IsPage .Params.abstract }}
+{{ if and .IsPage (or (eq .Type "publications") .Params.abstract) }}
   <div hidden aria-hidden="true" data-pagefind-body>
+    {{ if ne .Type "publications" }}
     <p>{{ .Params.abstract | markdownify | plainify }}</p>
+    {{ end }}
     {{ range .Params.authors }}
       {{ $profile := partial "functions/get_author_profile" . }}
       <span>{{ $profile.title }}</span>

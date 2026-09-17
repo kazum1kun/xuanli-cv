@@ -75,7 +75,32 @@ body { font-size: 21px; }
 .dark .xlin-talk-meta, .dark .xlin-talk-authors { color: #b8bac4; }
 .xlin-talk-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .author-note { margin-left: 2px; cursor: help; }
+.xlin-author { display: inline; }
+a.xlin-author { color: inherit; text-decoration: none; }
+a.xlin-author:hover { text-decoration: underline; text-underline-offset: 3px; }
+a.xlin-author:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.xlin-author-avatar { display: inline-block; width: 20px; height: 20px; margin-right: 5px; border-radius: 50%; object-fit: cover; vertical-align: middle; }
+.xlin-author-page { max-width: 1060px; margin: 0 auto; padding: 56px 24px; }
+.xlin-author-profile { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 32px; align-items: start; }
+.xlin-author-portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+.xlin-author-profile h1 { margin: 0 0 8px; font-size: 36px; line-height: 1.2; font-weight: 700; }
+.xlin-author-role { margin: 0; font-size: 20px; font-weight: 600; }
+.xlin-author-affiliations { margin: 6px 0 20px; font-size: 17px; }
+.xlin-author-profile .prose { max-width: none; font-size: 18px; }
+.xlin-author-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 20px 0 0; padding: 0; }
+.xlin-author-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 4px; }
+.xlin-author-links svg { width: 28px; height: 28px; }
+.xlin-author-links a:hover { background: #1565c012; }
+.dark .xlin-author-links a:hover { background: #bbdefb14; }
+.xlin-author-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.xlin-author-profile a { color: #1565c0; text-decoration: underline; text-underline-offset: 3px; }
+.dark .xlin-author-profile a { color: #bbdefb; }
+.xlin-author-publications { margin-top: 48px; }
+.xlin-author-publications h2 { margin-bottom: 28px; font-size: 26px; font-weight: 600; }
+.xlin-author-publications h2 span { font-weight: 400; }
 @media (max-width: 767px) {
+  .xlin-author-profile { grid-template-columns: 1fr; gap: 24px; }
+  .xlin-author-profile h1 { font-size: 30px; }
   body { font-size: 18px; }
   .hbb-section { padding: 56px 24px; }
   #about { padding-top: 45px !important; padding-bottom: 60px !important; }

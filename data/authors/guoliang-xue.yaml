@@ -1,0 +1,33 @@
+schema: hugoblox/author/v1
+slug: guoliang-xue
+is_owner: false
+name:
+  display: Guoliang Xue
+  given: Guoliang
+  family: Xue
+role: Professor of Computer Science and Engineering
+bio: |
+  Guoliang Xue is a professor in Arizona State University's School of Computing and Augmented Intelligence and an IEEE Fellow. He investigates wireless and quantum networks, network security and privacy, and optimization. He earned his PhD in computer science from the University of Minnesota in 1991. His honors include the IEEE Communications Society's 2019 William R. Bennett Prize, and he chaired the IEEE INFOCOM Steering Committee from 2020 through 2025.
+affiliations:
+  - name: Arizona State University
+    url: https://scai.engineering.asu.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://faculty.engineering.asu.edu/xue/
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:xue@asu.edu
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=9gBvN78AAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/guoliang-xue-5ba4875
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0002-5833-8894
+    label: ORCID
+interests:
+  - Wireless and Quantum Networks
+  - Network Security and Privacy
+  - Optimization

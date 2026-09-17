@@ -1,0 +1,7 @@
+{{/* Use author biographies for profile-page descriptions; retain upstream fallbacks elsewhere. */}}
+{{- $summary := .Params.summary | default .Params.description | default .Params.abstract | default .Summary -}}
+{{- if and (eq .Kind "term") (eq .Type "authors") -}}
+  {{- $profile := partial "functions/get_author_profile" (dict "slug" (.Data.Term | urlize)) -}}
+  {{- $summary = $profile.bio | default $summary -}}
+{{- end -}}
+{{- return $summary -}}

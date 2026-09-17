@@ -1,0 +1,35 @@
+schema: hugoblox/author/v1
+slug: feng-wang
+is_owner: false
+name:
+  display: Feng Wang
+  given: Feng
+  family: Wang
+role: Professor of Applied Computing
+bio: |
+  Feng Wang is a professor in the applied computing program in the School of Mathematical and Natural Sciences at Arizona State University. Her research spans network science, social media analysis, network optimization, network security, and wireless sensor networks. She received her PhD in Computer Science from the University of Minnesota, Twin Cities, in 2005, her master's degree in Computer Science from Peking University in 1999, and her bachelor's degree in Computer Science from Wuhan University in 1996. She joined Arizona State University in 2007.
+affiliations:
+  - name: Arizona State University
+    url: https://www.asu.edu/
+links:
+  - icon: hero/globe-alt
+    url: https://search.asu.edu/profile/1094034
+    label: Webpage
+  - icon: hero/envelope
+    url: mailto:fwang25@asu.edu
+    label: Email
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=Oom33rEAAAAJ
+    label: Google Scholar
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/feng-wang-06733411
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-1427-5964
+    label: ORCID
+interests:
+  - Network Science
+  - Social Media Analysis
+  - Network Optimization
+  - Network Security
+  - Wireless Sensor Networks
